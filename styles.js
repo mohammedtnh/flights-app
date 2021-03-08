@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { Button, Icon } from "native-base";
+import { Button, Icon, Input } from "native-base";
 
 export const HomeBackground = styled.ImageBackground`
   flex: 1;
@@ -13,7 +13,7 @@ export const OverLayContainer = styled.View`
 `;
 
 export const TopStyling = styled.View`
-  height: 60%;
+  height: 30%;
   align-items: center;
   justify-content: center;
 `;
@@ -25,7 +25,7 @@ export const Title = styled.Text`
 `;
 
 export const BottomStyling = styled.View`
-  height: 40%;
+  height: 50%;
   align-items: center;
   justify-content: center;
 `;
@@ -44,4 +44,12 @@ export const ButtonTextStyled = styled.Text`
 export const ButtonIconStyled = styled(Icon)`
   font-size: 20px;
   color: #fff;
+`;
+
+export const StyledTextInput = styled(Input)`
+  width: 60%;
+  height: 10%;
+  margin: 10px 5px;
+  border-color: gray;
+  border-width: 1px;
 `;

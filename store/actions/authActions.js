@@ -25,7 +25,7 @@ export const signin = (newUser, navigation) => {
       const res = await instance.post("/signin", newUser);
       dispatch(setUser(res.data.token));
       alert("Signed in Successfully");
-      navigation.goBack();
+      navigation.navigate("Home");
     } catch (error) {
       console.log(`signin authActions Error: ${error}`);
     }
@@ -38,7 +38,7 @@ export const signup = (newUser, navigation) => {
       const res = await instance.post("/signup", newUser);
       await dispatch(setUser(res.data.token));
       alert("Signed up Successfully");
-      navigation.goBack();
+      navigation.navigate("Home");
     } catch (error) {
       console.log(`signup authActions Error: ${error}`);
     }
