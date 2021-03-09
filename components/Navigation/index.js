@@ -12,8 +12,8 @@ const { Navigator, Screen } = createStackNavigator();
 const RootNavigator = () => {
   return (
     <Navigator
-      // initialRouteName="Signup"
-      initialRouteName="UserProfile"
+      initialRouteName="Signin"
+      // initialRouteName="UserProfile"
     >
       <Screen name="Home" component={Home} options={{ headerShown: false }} />
       <Screen

@@ -10,9 +10,7 @@ import { signup } from "../../store/actions/authActions";
 
 const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-const EditProfile = ({ navigation }) => {
-  const user = useSelector((state) => state.authReducer.user);
-
+const EditProfile = ({ navigation, user }) => {
   const { handleSubmit, control, errors, setValue } = useForm();
 
   setValue("username", user.username);
