@@ -1,3 +1,4 @@
+import { View } from "native-base";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signout } from "../store/actions/authActions";
@@ -27,18 +28,33 @@ const Home = ({ navigation }) => {
         </TopStyling>
         <BottomStyling>
           {user && (
-            <ButtonStyled
-              bordered
-              success
-              rounded
-              large
-              block
-              iconLeft
-              onPress={() => dispatch(signout())}
-            >
-              <ButtonIconStyled type="Octicons" name="sign-out" />
-              <ButtonTextStyled> Signout </ButtonTextStyled>
-            </ButtonStyled>
+            <View>
+              <ButtonStyled
+                bordered
+                success
+                rounded
+                large
+                block
+                iconLeft
+                onPress={() => navigation.navigate("UserProfile")}
+              >
+                <ButtonIconStyled type="EvilIcons" name="user" />
+                <ButtonTextStyled> UserProfile </ButtonTextStyled>
+              </ButtonStyled>
+
+              <ButtonStyled
+                bordered
+                success
+                rounded
+                large
+                block
+                iconLeft
+                onPress={() => dispatch(signout())}
+              >
+                <ButtonIconStyled type="Octicons" name="sign-out" />
+                <ButtonTextStyled> Signout </ButtonTextStyled>
+              </ButtonStyled>
+            </View>
           )}
         </BottomStyling>
       </OverLayContainer>
