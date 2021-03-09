@@ -5,12 +5,16 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../Home";
 import Signin from "../authentication/Signin";
 import Signup from "../authentication/Signup";
+import UserProfile from "../UserProfile";
 
 const { Navigator, Screen } = createStackNavigator();
 
 const RootNavigator = () => {
   return (
-    <Navigator initialRouteName="Signup">
+    <Navigator
+      // initialRouteName="Signup"
+      initialRouteName="UserProfile"
+    >
       <Screen name="Home" component={Home} options={{ headerShown: false }} />
       <Screen
         name="Signin"
@@ -21,6 +25,11 @@ const RootNavigator = () => {
         name="Signup"
         component={Signup}
         options={{ headerShown: false }}
+      />
+      <Screen
+        name="UserProfile"
+        component={UserProfile}
+        options={{ headerShown: true }}
       />
     </Navigator>
   );
