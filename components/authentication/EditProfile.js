@@ -1,28 +1,34 @@
-import React, { useState } from "react";
-import { View, Text, Switch } from "react-native";
-import { t, color } from "react-native-tailwindcss";
+import React, { useEffect } from "react";
+import { View } from "react-native";
+import { t } from "react-native-tailwindcss";
 import Input from "../Form/Input";
 import Button from "../Form/Button";
 import { useForm, Controller } from "react-hook-form";
-
-import { useDispatch, useSelector } from "react-redux";
-import { signup } from "../../store/actions/authActions";
+import { useDispatch } from "react-redux";
+import { userUpdate } from "../../store/actions/authActions";
 
 const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 const EditProfile = ({ navigation, user }) => {
   const { handleSubmit, control, errors, setValue } = useForm();
 
-  setValue("username", user.username);
-  setValue("email", user.email);
-  setValue("firstName", user.firstName);
-  setValue("lastName", user.lastName);
-  setValue("phoneNumber", user.phoneNumber);
+  useEffect(() => {
+    fetchUser();
+  }, []);
+
+  const fetchUser = async () => {
+    setValue("username", user.username);
+    setValue("email", user.email);
+    setValue("firstName", user.firstName);
+    setValue("lastName", user.lastName);
+    setValue("phoneNumber", user.phoneNumber);
+  };
 
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    dispatch(signup(data, navigation));
+    data = { ...data, id: user.id };
+    dispatch(userUpdate(data, navigation));
   };
 
   //   const [isAirline, setAirline] = useState(false);
@@ -33,6 +39,7 @@ const EditProfile = ({ navigation, user }) => {
 
   return (
     <View style={styles.container}>
+      {/* <Button>Reload</Button> */}
       <Controller
         defaultValue=""
         name="username"
@@ -145,12 +152,7 @@ const EditProfile = ({ navigation, user }) => {
           value={isAirline}
         />
       </View> */}
-      <Button onPress={handleSubmit(onSubmit)} label="Signup" />
-      <Text> </Text>
-      <Button
-        onPress={() => navigation.navigate("Signin")}
-        label="Already Have an Account"
-      />
+      <Button onPress={handleSubmit(onSubmit)} label="Save Changes" />
     </View>
   );
 };
