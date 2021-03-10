@@ -4,7 +4,7 @@ const initialState = {
   user: null,
   loading: true,
 };
-
+// REVIEW: Why do you have a user loading?
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case types.SET_USER:
