@@ -1,5 +1,6 @@
-import { View } from "native-base";
+import { Text, View } from "native-base";
 import React from "react";
+import { ReloadInstructions } from "react-native/Libraries/NewAppScreen";
 import { useDispatch, useSelector } from "react-redux";
 import { signout } from "../store/actions/authActions";
 import {
@@ -16,6 +17,8 @@ import {
 const Home = ({ navigation }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.authReducer.user);
+  // ReloadInstructions
+
   return (
     <HomeBackground
       source={{
@@ -41,7 +44,7 @@ const Home = ({ navigation }) => {
                 <ButtonIconStyled type="EvilIcons" name="user" />
                 <ButtonTextStyled> UserProfile </ButtonTextStyled>
               </ButtonStyled>
-
+              <Text> </Text>
               <ButtonStyled
                 bordered
                 success

@@ -80,3 +80,17 @@ export const checkForToken = () => async (dispatch) => {
     console.log(`checkForToken authActions Error: ${error}`);
   }
 };
+
+export const userUpdate = (updatedUser, navigation) => async (dispatch) => {
+  console.log(updatedUser);
+  try {
+    const res = await instance.put("/profile", updatedUser);
+    navigation.navigate("Home");
+    dispatch({
+      type: types.UPDATE_USER,
+      payload: { updatedUser: res.data },
+    });
+  } catch (error) {
+    console.log("ERROR: ", error);
+  }
+};
