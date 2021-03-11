@@ -12,10 +12,9 @@ const { Navigator, Screen } = createStackNavigator();
 
 const RootNavigator = () => {
   return (
-    <Navigator
-      initialRouteName="Signin"
-      // initialRouteName="FlightList"
-    >
+
+    <Navigator initialRouteName="Signup">
+
       <Screen name="Home" component={Home} options={{ headerShown: false }} />
       <Screen
         name="Signin"

@@ -1,7 +1,8 @@
-import { ListItem } from "native-base";
 import React from "react";
-import EditProfile from "./authentication/EditProfile";
+import { ListItem } from "native-base";
 import { useSelector } from "react-redux";
+
+import EditProfile from "./authentication/EditProfile";
 
 const UserProfile = ({ navigation }) => {
   const user = useSelector((state) => state.authReducer.user);

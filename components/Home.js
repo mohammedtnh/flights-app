@@ -1,7 +1,13 @@
-import { Text, View } from "native-base";
 import React from "react";
+
+import { Text, View } from "native-base";
+
 import { useDispatch, useSelector } from "react-redux";
+
+// Actions
 import { signout } from "../store/actions/authActions";
+
+// Styling
 import {
   HomeBackground,
   TopStyling,
@@ -18,6 +24,7 @@ const Home = ({ navigation }) => {
   // console.log(flights);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.authReducer.user);
+
   return (
     <HomeBackground
       source={{

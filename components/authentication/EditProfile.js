@@ -1,10 +1,14 @@
 import React, { useEffect } from "react";
 import { View } from "react-native";
 import { t } from "react-native-tailwindcss";
-import Input from "../Form/Input";
-import Button from "../Form/Button";
 import { useForm, Controller } from "react-hook-form";
 import { useDispatch } from "react-redux";
+
+// Styling
+import Input from "../Form/Input";
+import Button from "../Form/Button";
+
+// Actions
 import { userUpdate } from "../../store/actions/authActions";
 
 const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -31,15 +35,8 @@ const EditProfile = ({ navigation, user }) => {
     dispatch(userUpdate(data, navigation));
   };
 
-  //   const [isAirline, setAirline] = useState(false);
-
-  //   const toggleAirline = () => {
-  //     setAirline((prev) => !prev);
-  //   };
-
   return (
     <View style={styles.container}>
-      {/* <Button>Reload</Button> */}
       <Controller
         defaultValue=""
         name="username"
@@ -142,16 +139,6 @@ const EditProfile = ({ navigation, user }) => {
           />
         )}
       />
-      {/* <View style={styles.switch}>
-        <Text style={styles.switchText}>Airline?</Text>
-        <Switch
-          trackColor={{ false: color.gray200, true: color.green600 }}
-          thumbColor={color.gray100}
-          ios_backgroundColor={color.gray800}
-          onValueChange={toggleAirline}
-          value={isAirline}
-        />
-      </View> */}
       <Button onPress={handleSubmit(onSubmit)} label="Save Changes" />
     </View>
   );
