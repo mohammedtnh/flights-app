@@ -1,8 +1,11 @@
-import { Text, View } from "native-base";
 import React from "react";
-import { ReloadInstructions } from "react-native/Libraries/NewAppScreen";
+import { Text, View } from "native-base";
 import { useDispatch, useSelector } from "react-redux";
+
+// Actions
 import { signout } from "../store/actions/authActions";
+
+// Styling
 import {
   HomeBackground,
   TopStyling,
@@ -17,7 +20,6 @@ import {
 const Home = ({ navigation }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.authReducer.user);
-  // ReloadInstructions
 
   return (
     <HomeBackground

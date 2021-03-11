@@ -1,11 +1,14 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { View } from "react-native";
 import { t } from "react-native-tailwindcss";
-import Input from "../Form/Input";
-import Button from "../Form/Button";
 import { useForm, Controller } from "react-hook-form";
 
-import { useDispatch } from "react-redux";
+// Styling
+import Input from "../Form/Input";
+import Button from "../Form/Button";
+
+// Actions
 import { signin } from "../../store/actions/authActions";
 
 const Signin = ({ navigation }) => {
