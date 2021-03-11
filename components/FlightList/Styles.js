@@ -7,9 +7,11 @@ export const styles = StyleSheet.create({
   },
   scrollView: {
     backgroundColor: "grey",
-    marginHorizontal: 20,
+    marginHorizontal: 30,
   },
   text: {
-    fontSize: 42,
+    color: "red",
+    fontSize: 15,
+    marginBottom: 5,
   },
 });

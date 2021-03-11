@@ -19,7 +19,7 @@ const FlightList = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
-        <Text>{flightList}</Text>
+        <Text style={styles.text}>{flightList}</Text>
       </ScrollView>
     </SafeAreaView>
   );
