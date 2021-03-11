@@ -6,6 +6,7 @@ import Home from "../Home";
 import Signin from "../authentication/Signin";
 import Signup from "../authentication/Signup";
 import UserProfile from "../UserProfile";
+import FlightList from "../FlightList";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -13,7 +14,7 @@ const RootNavigator = () => {
   return (
     <Navigator
       initialRouteName="Signin"
-      // initialRouteName="UserProfile"
+      // initialRouteName="FlightList"
     >
       <Screen name="Home" component={Home} options={{ headerShown: false }} />
       <Screen
@@ -29,6 +30,11 @@ const RootNavigator = () => {
       <Screen
         name="UserProfile"
         component={UserProfile}
+        options={{ headerShown: true }}
+      />
+      <Screen
+        name="FlightList"
+        component={FlightList}
         options={{ headerShown: true }}
       />
     </Navigator>

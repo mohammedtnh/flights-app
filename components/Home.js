@@ -1,6 +1,5 @@
 import { Text, View } from "native-base";
 import React from "react";
-import { ReloadInstructions } from "react-native/Libraries/NewAppScreen";
 import { useDispatch, useSelector } from "react-redux";
 import { signout } from "../store/actions/authActions";
 import {
@@ -15,10 +14,10 @@ import {
 } from "../styles";
 
 const Home = ({ navigation }) => {
+  const flights = useSelector((state) => state.flightReducer.flights);
+  // console.log(flights);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.authReducer.user);
-  // ReloadInstructions
-
   return (
     <HomeBackground
       source={{
@@ -29,7 +28,27 @@ const Home = ({ navigation }) => {
         <TopStyling>
           <Title>Flights App</Title>
         </TopStyling>
+
         <BottomStyling>
+          <View>
+            <ButtonStyled
+              bordered
+              success
+              rounded
+              large
+              block
+              iconLeft
+              onPress={() => navigation.navigate("FlightList")}
+            >
+              <ButtonIconStyled
+                type="MaterialCommunityIcons"
+                name="airplane-takeoff"
+              />
+              <ButtonTextStyled> Flights </ButtonTextStyled>
+            </ButtonStyled>
+            <Text> </Text>
+          </View>
+
           {user && (
             <View>
               <ButtonStyled
