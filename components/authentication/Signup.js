@@ -1,11 +1,14 @@
-import React, { useState } from "react";
-import { View, Text, Switch } from "react-native";
-import { t, color } from "react-native-tailwindcss";
-import Input from "../Form/Input";
-import Button from "../Form/Button";
+import React from "react";
+import { useDispatch } from "react-redux";
+import { View } from "react-native";
+import { t } from "react-native-tailwindcss";
 import { useForm, Controller } from "react-hook-form";
 
-import { useDispatch } from "react-redux";
+// Styling
+import Input from "../Form/Input";
+import Button from "../Form/Button";
+
+// Actions
 import { signup } from "../../store/actions/authActions";
 
 const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -18,12 +21,6 @@ const Signin = ({ navigation }) => {
   const onSubmit = (data) => {
     dispatch(signup(data, navigation));
   };
-
-  //   const [isAirline, setAirline] = useState(false);
-
-  //   const toggleAirline = () => {
-  //     setAirline((prev) => !prev);
-  //   };
 
   return (
     <View style={styles.container}>
@@ -161,19 +158,7 @@ const Signin = ({ navigation }) => {
           />
         )}
       />
-
-      {/* <View style={styles.switch}>
-        <Text style={styles.switchText}>Airline?</Text>
-        <Switch
-          trackColor={{ false: color.gray200, true: color.green600 }}
-          thumbColor={color.gray100}
-          ios_backgroundColor={color.gray800}
-          onValueChange={toggleAirline}
-          value={isAirline}
-        />
-      </View> */}
       <Button onPress={handleSubmit(onSubmit)} label="Signup" />
-
       <Button
         onPress={() => navigation.navigate("Signin")}
         label="Already Have an Account"

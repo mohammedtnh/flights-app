@@ -57,7 +57,7 @@ export const signout = () => {
       });
       alert("Signed out Successfully");
     } catch (error) {
-      console.log(`Signout Request Error: ${error}`);
+      console.log(`Signout authActions Error: ${error}`);
     }
   };
 };
@@ -91,6 +91,6 @@ export const userUpdate = (updatedUser, navigation) => async (dispatch) => {
       payload: { updatedUser: res.data },
     });
   } catch (error) {
-    console.log("ERROR: ", error);
+    console.log(`userUpdate authActions Error: ${error}`);
   }
 };
