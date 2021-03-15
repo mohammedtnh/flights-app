@@ -2,10 +2,25 @@ import React from "react";
 import { View, Text } from "react-native";
 import { Card, Button } from "react-native-elements";
 // import { FlatList } from "react-native-gesture-handler";
-import { ButtonIconStyled } from "../styles";
-import { styles } from "./FlightList/Styles";
+import { ButtonIconStyled } from "../../styles";
+import { styles } from "./Styles";
+import { useSelector } from "react-redux";
 
 const FlightItem = ({ flight, setId }) => {
+  const arrivalAirportId = flight.arrivalAirportId;
+  const departureAirporId = flight.departureAirportId;
+
+  const airports = useSelector((state) => state.airportReducer.airports);
+
+  //finding the arrivalAirport for this flight
+  const arrivalAirport = airports.find(
+    (airport) => airport.id === arrivalAirportId
+  );
+
+  //finding the departureAirport for this flight
+  const departureAirport = airports.find(
+    (airport) => airport.id === departureAirporId
+  );
   return (
     <View>
       <Card>
@@ -13,10 +28,10 @@ const FlightItem = ({ flight, setId }) => {
         <Card.Divider />
         <Text
           style={styles.text}
-        >{`Departure Airport: ${flight.departureAirport}`}</Text>
+        >{`Departure Airport: ${departureAirport.code}`}</Text>
         <Text
           style={styles.text}
-        >{`Arrival Airport: ${flight.arrivalAirport}`}</Text>
+        >{`Arrival Airport: ${arrivalAirport.code}`}</Text>
         <Text style={styles.text}>Departure Time: {flight.departureTime}</Text>
         <Text style={styles.text}>Arrival Time: {flight.arrivalTime}</Text>
         <Text style={styles.text}>Departure Date: {flight.departureDate}</Text>

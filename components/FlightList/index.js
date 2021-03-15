@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { SafeAreaView, ScrollView, StatusBar, StyleSheet } from "react-native";
 import { useSelector } from "react-redux";
-import FlightItem from "../FlightItem";
+import FlightItem from "./FlightItem";
 import { styles } from "./Styles";
 
 const FlightList = () => {
