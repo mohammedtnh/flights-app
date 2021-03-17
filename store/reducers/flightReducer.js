@@ -34,6 +34,12 @@ const flightReducer = (state = initialState, action) => {
           flight.id === updatedFlight.id ? updatedFlight : flight
         ),
       };
+    case types.SEARCH_FLIGHT:
+      return {
+        ...state,
+        flights: action.payload,
+        loading: false,
+      };
 
     default:
       return state;

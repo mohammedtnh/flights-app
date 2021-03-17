@@ -167,6 +167,7 @@ const Signin = ({ navigation }) => {
   );
 };
 
+// Review: Move to styles
 const styles = {
   container: [t.flex1, t.justifyCenter, t.itemsCenter, t.p6, t.bgGray200],
   switch: [t.mB4, t.selfStart, t.flexRow, t.itemsCenter],

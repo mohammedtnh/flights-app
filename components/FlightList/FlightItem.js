@@ -22,6 +22,8 @@ const FlightItem = ({ flight, setId }) => {
     (airport) => airport.id === departureAirporId
   );
   return (
+    // Review: remove commented code
+    // Review: Move some styles to the styles file
     <View>
       <Card>
         <Card.Title>Flight number: {flight.id}</Card.Title>

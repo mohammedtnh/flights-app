@@ -1,7 +1,7 @@
 import instance from "./instance";
-// ACTION TYPES
 import * as types from "./actionTypes";
 
+// Review: fix the error messages to be more clear
 export const fetchFlights = () => {
   return async (dispatch) => {
     try {
@@ -25,6 +25,7 @@ export const addFlight = (newFlight) => async (dispatch) => {
   }
 };
 
+// Review: Remove deleteFlight if not used
 export const deleteFlight = (flightId) => async (dispatch) => {
   try {
     await instance.delete(`/flight/${flightId}`);
@@ -47,5 +48,17 @@ export const updateFlight = (updatedFlight) => async (dispatch) => {
     });
   } catch (error) {
     console.log(error);
+  }
+};
+
+export const searchFlight = (searchedFlight, navigation) => async (
+  dispatch
+) => {
+  try {
+    const res = await instance.post(`/flights/search`, searchedFlight);
+    navigation.navigate("FlightList");
+    dispatch({ type: types.SEARCH_FLIGHT, payload: res.data });
+  } catch (error) {
+    console.log("searchFlight flightActions Error:", error);
   }
 };

@@ -11,6 +11,9 @@ import Button from "../Form/Button";
 // Actions
 import { signin } from "../../store/actions/authActions";
 
+// Review: remove if not used
+import { TextInput } from "react-native-gesture-handler";
+
 const Signin = ({ navigation }) => {
   const { handleSubmit, control, errors } = useForm();
 
@@ -62,7 +65,6 @@ const Signin = ({ navigation }) => {
       />
 
       <Button onPress={handleSubmit(onSubmit)} label="Signin" />
-
       <Button
         onPress={() => navigation.navigate("Signup")}
         label="Create an Account"
@@ -71,6 +73,7 @@ const Signin = ({ navigation }) => {
   );
 };
 
+// Review: Move to styles
 const styles = {
   container: [t.flex1, t.justifyCenter, t.itemsCenter, t.p6, t.bgGray200],
   switch: [t.mB4, t.selfStart, t.flexRow, t.itemsCenter],

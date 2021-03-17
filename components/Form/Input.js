@@ -15,7 +15,7 @@ export default function Input(props) {
     </View>
   );
 }
-
+// Review: Move to styles
 const styles = {
   wrapper: [t.selfStretch, t.mB5],
   input: [

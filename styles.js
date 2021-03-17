@@ -1,6 +1,8 @@
 import styled from "styled-components/native";
 import { Button, Icon, Input } from "native-base";
 
+// Review: Remove unused styles
+
 export const HomeBackground = styled.ImageBackground`
   flex: 1;
   width: 100%;

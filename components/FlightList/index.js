@@ -1,3 +1,4 @@
+// Review: Remove unused imports and arrange
 import { Spinner, View, Text } from "native-base";
 import React from "react";
 import { useState } from "react";
@@ -6,6 +7,7 @@ import { useSelector } from "react-redux";
 import FlightItem from "./FlightItem";
 import { styles } from "./Styles";
 
+// Review: redesign
 const FlightList = () => {
   let [id, setId] = useState([]); //reading flight id for booking
   const flights = useSelector((state) => state.flightReducer.flights);

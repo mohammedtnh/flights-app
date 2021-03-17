@@ -13,6 +13,7 @@ import { userUpdate } from "../../store/actions/authActions";
 
 const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
+// Review: the profile data is not refreshing need to be fixed
 const EditProfile = ({ navigation, user }) => {
   const { handleSubmit, control, errors, setValue } = useForm();
 
@@ -144,6 +145,7 @@ const EditProfile = ({ navigation, user }) => {
   );
 };
 
+// Review: move to styles
 const styles = {
   container: [t.flex1, t.justifyCenter, t.itemsCenter, t.p6, t.bgGray200],
   switch: [t.mB4, t.selfStart, t.flexRow, t.itemsCenter],

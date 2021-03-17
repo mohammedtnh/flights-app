@@ -10,6 +10,7 @@ export default function Button({ label, ...props }) {
   );
 }
 
+// Review: Move to styles
 const styles = {
   button: [t.selfStretch, t.bgGreen600, t.itemsCenter, t.pY3, t.rounded],
   buttonLabel: [t.textWhite, t.textLg],

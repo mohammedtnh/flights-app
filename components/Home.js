@@ -1,13 +1,11 @@
 import React from "react";
-
-import { Text, View } from "native-base";
-
 import { useDispatch, useSelector } from "react-redux";
 
 // Actions
 import { signout } from "../store/actions/authActions";
 
 // Styling
+import { Text, View } from "native-base";
 import {
   HomeBackground,
   TopStyling,
@@ -19,9 +17,8 @@ import {
   ButtonIconStyled,
 } from "../styles";
 
+// Review: fix the design
 const Home = ({ navigation }) => {
-  const flights = useSelector((state) => state.flightReducer.flights);
-  // console.log(flights);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.authReducer.user);
 
@@ -37,6 +34,24 @@ const Home = ({ navigation }) => {
         </TopStyling>
 
         <BottomStyling>
+          <View>
+            <ButtonStyled
+              bordered
+              success
+              rounded
+              large
+              block
+              iconLeft
+              onPress={() => navigation.navigate("Search")}
+            >
+              <ButtonIconStyled
+                type="MaterialCommunityIcons"
+                name="briefcase-search-outline"
+              />
+              <ButtonTextStyled> Search </ButtonTextStyled>
+            </ButtonStyled>
+            <Text> </Text>
+          </View>
           <View>
             <ButtonStyled
               bordered
